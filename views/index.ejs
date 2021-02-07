@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/bundle.css">
+    <link rel="stylesheet" href="/dimen.css">
+    <style>
+      * { box-sizing: border-box; }
+
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.grid-sizer,
+.grid-item {
+  width: 20%;
+  height: 250px
+}
+@media (max-width: 575px) {
+  .grid-sizer,
+  .grid-item {
+    width: 100%;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .grid-sizer,
+  .grid-item {
+    width: 50%;
+  }
+}
+
+
+/* To change the amount of columns on larger devices, uncomment the code below */
+
+/* @media (min-width: 768px) and (max-width: 991px) {
+  .grid-sizer,
+  .grid-item {
+    width: 33.333%;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .grid-sizer,
+  .grid-item {
+    width: 25%;
+  }
+}
+@media (min-width: 1200px) {
+  .grid-sizer,
+  .grid-item {
+    width: 20%;
+  }
+} */
+
+.grid-item {
+  float: left;
+}
+
+.grid-item img {
+  display: block;
+  max-width: 80%;
+}
+
+.image-responsive {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+}
+
+.input-group {
+  width: auto;
+}
+
+.input-group input,
+.input-group .form-notch,
+.input-group .form-notch-trailing {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.input-group button {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+    </style>
+  </head>
+    <body style="background-color:#ecedf3">
+        <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+            <a class="navbar-brand" href="#">Navbar</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="basicExampleNav">
+
+                <!-- Links -->
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                    <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+
+                </ul>
+                <!-- Links -->
+
+                <form class="form-inline">
+                <div class="md-form my-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                </div>
+                </form>
+            </div>
+
+        </nav>
+
+        <div class="container">
+            
+            <h1 class="my-4 font-weight-bold">Images</h1>
+
+            
+            <div class="grid">
+                <div class="grid-sizer"></div>
+                  <%imageDataArray.forEach(imageData => {%>
+                    <div class="grid-item">
+                      <img class="image-item" id="<%=imageData.id%>" src="<%=imageData.image%>" data-imagename="<%=imageData.name%>" alt="" >
+                    </div>  
+                  <%})%>
+                    
+                  
+                
+            </div>
+        </div> 
+        
+        <div class="modal fade" id="downloadImageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+          aria-hidden="true">
+
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <div class="row justify-content-center">
+                    <div class="col-md-12">
+                      <img src="" alt="" class="image-responsive" id="modal-image">
+                      <div class="col-md-12">
+                        <div class="row"><p id="image-description">Description</p><br></div>
+                        <div class="row">
+                        <p >Price: </p>&nbsp;
+                        <p id="image-price"></p>
+                        </div>
+                        
+                        
+                        <button type="button" id="downloadImageBtn" class="btn btn-default btn-lg btn-block"><i class="material-icons">cloud_download</i>Download</button>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+                
+              </div>
+              
+            </div>
+          </div>
+        </div>               
+
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-firestore.js"></script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.com/libraries/Chart.js"></script>
+        <script src="/bundle.js" async>
+        </script>
+        <script type="text/javascript" src="/masonry.pkgd.min.js"></script>
+        <script type="text/javascript" src="/imagesloaded.pkgd.min.js"></script>
+
+        <script type="text/javascript">
+            // init Masonry
+          var $grid = $('.grid').masonry({
+            itemSelector: '.grid-item',
+            percentPosition: true,
+            columnWidth: '.grid-sizer'
+          });
+
+          // layout Masonry after each image loads
+          $grid.imagesLoaded().progress( function() {
+            $grid.masonry();
+          });
+
+
+
+new mdb.Autocomplete(basicAutocomplete, {
+  filter: dataFilter
+});
+        </script>
+
+        <script type="text/javascript">
+          $(document).ready(function(){
+            const fbFirestoreConfig = {
+              apiKey: "AIzaSyAn1OUg1ituQP9BJOR2CLP-bhnnYXJ9veE",
+              authDomain: "nodetrial-281216.firebaseapp.com",
+              //   databaseURL: "https://nodetrial-281216.firebaseio.com",
+              projectId: "nodetrial-281216",
+              //   storageBucket: "nodetrial-281216.appspot.com",
+              //   messagingSenderId: "6249150638",
+              //   appId: "1:6249150638:web:d5e81055679747dbcf953f"
+            };
+
+            var app = firebase.initializeApp(fbFirestoreConfig);
+            db = firebase.firestore(app);
+
+
+              let imageId = "";
+              let imageName = "";
+              let imageSrc = "";
+              $('.image-item').on("click", (event)=>{
+                  console.log(event);
+                  imageId = event.target.id;
+                  imageName = event.target.attributes.getNamedItem("data-imagename").nodeValue
+                  imageSrc = event.target.src;
+                  console.log(imageName);
+                  console.log(imageId);
+                  $('#downloadImageModal').modal('show');
+              });
+
+              $('#downloadImageModal').on('show.bs.modal', ()=>{
+
+                $.ajax({
+                  url:'/findimage',
+                  dataType: "JSON",
+                  type: "POST",
+                  data: {id: imageId}
+                }).then((result)=>{
+                  
+                  let modal = $('#downloadImageModal');
+                  modal.find('.modal-title').text();
+                  modal.find('.modal-body #modal-image').attr("src", imageSrc);
+                  modal.find('#image-description').text(result.description);
+                  if(result.price == "0"){
+                    modal.find('.modal-body #image-price').text("Free");
+                  }else{
+                    modal.find('.modal-body #image-price').text("Ksh "+ result.price);
+                  }
+                  
+                }).catch((err)=>{
+                  console.log(err)
+                })
+                // let modal = $('#moreDetailsModal');
+                // modal.find('.modal-title').text(selectedDriver.first_name +" "+selectedDriver.middle_name +" "+selectedDriver.last_name);
+
+                // modal.find('#viewDriverIDNo').val(selectedDriver.id_number);
+                // modal.find('.modal-body #viewDriverPhoneNo').val(selectedDriver.phone_number);
+              });
+
+
+              $('#downloadImageModal').on('hidden.bs.modal', ()=>{
+                let modal = $('#downloadImageModal');
+                modal.find('.modal-title').text();
+                modal.find('#image-description').text("");
+                modal.find('.modal-body #image-price').text("");
+                imageId = "";
+                imageName = "";
+                console.log(imageId);
+                console.log(imageName)
+              });
+
+              $('#downloadImageBtn').on('click', ()=>{
+                let modal = $('#downloadImageModal');
+                
+                if(modal.find('.modal-body #image-price').text() == "Free"){
+                  // $.ajax({
+                  //   url: "/image/dc8467832b445326bb66a289005dee8d.jpg",
+                  //   type: "GET"
+                  // }).then((result) => {
+                  //   // console.log(result)
+                  // }).catch((err)=>{
+
+                  // })
+                  window.location = "/image/"+imageName;
+                }else{
+                  let confirmedPhoneNumber = prompt("Please enter your mpesa phone number");
+                  // var confirmedPhoneNumber = $('#mpesaPhoneNumber').val();
+                  if(confirmedPhoneNumber==null || confirmedPhoneNumber ==""){
+                      // showAlert("danger", "emptyPhoneNumberError");
+                      alert("Please enter phone number");
+                      return;
+                  }
+                  var sanitizedPhoneNumber = sanitizePhoneNumber(confirmedPhoneNumber);
+                          
+                  if(sanitizedPhoneNumber=="#" ){
+                    alert("Wrong phone number format");
+                      // showAlert("danger", "phoneNumberFormatError");
+                      return;
+                  }
+                  // $('#phoneNumberModal').modal('hide');
+                  
+                  // $('#phoneNumberModal').on('hidden.bs.modal', function (event) {
+                    $.ajax({
+                        type : 'POST',
+                        url : '/transactions/initiateLNMTransaction',
+                        data : {phoneNumber: sanitizedPhoneNumber, amount: "1"},
+                        dataType : "JSON",
+                        beforeSend: function(){
+                            $('#downloadImageBtn').html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Initiating Transaction...').addClass('disabled');
+                        }
+                    }).fail(function(response){
+                        $('#downloadImageBtn').html('Download').removeClass('disabled');
+                        console.log("Tag1");
+                        console.log(response)
+                        alert("Error: "+JSON.stringify(response));
+                    }).done(function(response){
+                        if(response.ResponseCode == "0"){
+                            sessionStorage.setItem("checkoutRequestID", response.CheckoutRequestID);
+                            // showAlert("success", "mpesaInitiationSuccess");
+                            getReceiptRealTime();
+                            // alert("Transaction request successfully sent. Please wait for MPesa SMS Message and verify.");
+                        
+                        }else{
+                            $('#downloadImageBtn').html('Download').removeClass('disabled');
+                            console.log("Tag2")
+                            console.log(response.ResponseDescription)
+                            alert(response.ResponseDescription);
+                        }
+                    }).always(function(response){
+                          
+                      });
+                  
+                  // });
+                }
+              })
+
+              function sanitizePhoneNumber(phoneNumber){
+                var sanitizedPhoneNumber = "";
+                if (phoneNumber.length ==10 && phoneNumber.startsWith("07")){
+                    sanitizedPhoneNumber = phoneNumber.replace("0", "254");
+                }else if(phoneNumber.length == 13 && phoneNumber.startsWith("+254")){
+                    sanitizedPhoneNumber = phoneNumber.replace("+254", "254");
+                }else if(phoneNumber.length == 12 && phoneNumber.startsWith("254")){
+                    sanitizedPhoneNumber = phoneNumber;
+                }else{
+                    sanitizedPhoneNumber = "#";
+                }
+                return sanitizedPhoneNumber;
+              }
+
+              function getReceiptRealTime(){
+                $('#onboardInitiateTransactionBtn').html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Verifying...').addClass('disabled');
+                var id = sessionStorage.getItem("checkoutRequestID");
+                // var id = "ws_CO_021020201411510801";
+                var dataExists = "false";
+                
+                
+                var unsubscribe = db.collection("callbacks").doc(id).onSnapshot(function(doc) {
+                  var source = doc.metadata.hasPendingWrites ? "Local" : "Server";
+                  console.log(source, " data: ", doc.data());
+                  var callbackData = doc.data();
+                  
+                  if (callbackData != null && callbackData != ""){
+                      dataExists = "true";
+                      var resultCode = callbackData.result_code;
+                      unsubscribe();
+                      clearTimeout(timeout);
+                      sessionStorage.removeItem("checkoutRequestID");
+                      console.log("Data exists: "+dataExists);
+                      if (resultCode == 0){
+                          alert("Verification Success. Your file download should start shortly.");
+                          // showAlert("success", "verificationSuccess");
+                          window.location = "/image/"+imageName;
+                          $('#downloadImageBtn').html('Download').removeClass('disabled');
+                          
+                      }else{
+                          // $('#failedTransactionModal').modal('show');
+                          console.log("Tag3");
+                          console.log(callbackData.result_desc);
+                          alert("Verification Failed: "+callbackData.result_desc);
+                          $('#downloadImageBtn').html('Download').removeClass('disabled');
+                          
+                      }
+                  }
+                });
+            
+            
+                var timeout = setTimeout(function(){
+                    console.log("We should have stopped by now");
+                    if(dataExists == "false"){
+                        unsubscribe();
+                        alert("Unable to find the same in our db");
+                        // $('#manualVerifyModal').modal('show');
+                    }
+                }, 45000);
+              }
+          });
+        </script>
+
+    </body>
+</html>

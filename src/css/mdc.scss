@@ -1,0 +1,24 @@
+@use '@material/button/mdc-button';
+@use '@material/button';
+@use "@material/chips/mdc-chips";
+@use "@material/floating-label/mdc-floating-label";
+@use "@material/line-ripple/mdc-line-ripple";
+@use "@material/notched-outline/mdc-notched-outline";
+@use "@material/textfield";
+
+@include textfield.core-styles;
+
+
+
+.mdc-button {
+//   @include button.container-fill-color(darksalmon);
+  @include button.ink-color(#253079);
+  @include button.core-styles;
+}  
+
+.mdc-button--raised{
+    @include button.container-fill-color(#1a6acc);
+    @include button.ink-color(white);
+
+}
+

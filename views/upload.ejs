@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/bundle.css">
+    <link rel="stylesheet" href="/dimen.css">
+    <style>
+      
+    </style>
+  </head>
+  <body style="background-color:#ecedf3">
+    <div class="container">
+        <div class="row"  style="background-color:white; border-width:1px; border-radius:5px; border-style:solid; border-color:#d2d2d2; padding:20px">
+                <div class="col-md-6">
+                    <img id="blah" src="http://placehold.it/180" alt="your image" style="max-width:180px"/><br>
+                    <input class="m-10px-t" name="imageFile" type='file' id="imageUpload" accept=".png, .jpg, .jpeg" onchange="readURL(this);" />
+                </div>
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <label class="mdc-text-field mdc-text-field--filled">
+                        <span class="mdc-text-field__ripple"></span>
+                        <span class="mdc-floating-label" id="imageNameLabel">Name</span>
+                        <input class="mdc-text-field__input" id="imageName" name="imageName" type="text" aria-labelledby="imageNameLabel">
+                        <span class="mdc-line-ripple"></span>
+                      </label>
+                    </div>
+
+                    <div class="col-sm-12">
+                      <label class="mdc-text-field mdc-text-field--filled">
+                        <span class="mdc-text-field__ripple"></span>
+                        <span class="mdc-floating-label" id="imageDescriptionLabel">Description</span>
+                        <input class="mdc-text-field__input" id="imageDescription" name="imageDescription" type="text" aria-labelledby="imageDescriptionLabel">
+                        <span class="mdc-line-ripple"></span>
+                      </label>
+                    </div>
+
+                    <div class="col-sm-12">
+                      <label class="mdc-text-field mdc-text-field--filled">
+                        <span class="mdc-text-field__ripple"></span>
+                        <span class="mdc-floating-label" id="imagePriceLabel">Price</span>
+                        <input class="mdc-text-field__input" id="imagePrice" name="imagePrice" type="text" aria-labelledby="imagePriceLabel">
+                        <span class="mdc-line-ripple"></span>
+                      </label>
+                    </div>
+
+                    <div class="col-sm-12">
+                      <div class="mdc-chip-set mdc-chip-set--input" role="grid">
+                        
+                      </div>
+                      <label class="mdc-text-field mdc-text-field--filled" id="chip-input">
+                        <span class="mdc-text-field__ripple"></span>
+                        <span class="mdc-floating-label" id="imageKeywordsLabel">Keywords</span>
+                        <input class="mdc-text-field__input" id="imageKeywords" name="imageKeywords" type="text" aria-labelledby="imageKeywordsLabel" aria-controls="keywordsHelper"
+         aria-describedby="keywordsHelper">
+                        <span class="mdc-line-ripple"></span>
+                      </label>
+                      <div class="mdc-text-field-helper-line">
+                        <div class="mdc-text-field-helper-text" id="keywordsHelper" aria-hidden="true">Press enter to add keyword</div>
+                      </div>
+
+                    <div class="col-sm-12">
+                      <button type="button" id="uploadImgBtn" class="btn btn-default btn-lg btn-block">Upload</button>
+                    </div>
+                    
+
+                  </div>  
+                </div>
+            
+            
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.com/libraries/Chart.js"></script>
+    <script src="/bundle.js" async>
+    </script>
+    <script type="text/javascript">
+      function readURL(input) {
+          if (input.files && input.files[0]) {
+              var reader = new FileReader();
+
+              reader.onload = function (e) {
+                  $('#blah')
+                      .attr('src', e.target.result);
+              };
+
+              reader.readAsDataURL(input.files[0]);
+          }
+      }
+      // const input = document.querySelector('#chipInput');
+      // input.addEventListener('keydown', function(){
+      //   console.log("Alright");
+      // })
+      
+    </script>
+
+    <script type="text/javascript">
+      $(document).ready(()=>{
+        $("#uploadImgBtn").on("click", ()=>{
+          
+          // axios.post('/upload', formData, {
+          //   headers: {
+          //     'Content-Type': 'multipart/form-data'
+          //   }
+          // });
+        })
+      })
+    </script>
+
+  </body>
+</html>
