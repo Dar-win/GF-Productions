@@ -21,6 +21,14 @@ const imageSchema = new Schema({
     keywords:{
         type:Array,
         required: true
+    },
+    alias:{
+        type:String,
+        required: true
+    },
+    aspectRatio: {
+        type:Number,
+        required: true
     }
 }, {timestamps:true});
 
