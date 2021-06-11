@@ -1,3 +1,3 @@
 module.exports = {
-    mongoURI: 'mongodb+srv://devops:dev1234@cluster0.xzvab.mongodb.net/guineafowl?retryWrites=true&w=majority',
+    mongoURI: 'mongodb+srv://gf-webmaster:GuineaFowlP1@cluster0.okidu.mongodb.net/guineafowl?retryWrites=true&w=majority',
 };
