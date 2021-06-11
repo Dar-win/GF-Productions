@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <%-include('partials/head', {title: "Portfolio"}) %>
+  
+    <body class="medium-light-gray-bg">
+      <header>
+        <%- include('partials/nav', {page: "portfolio"}) %>
+      </header>
+      
+      <main>
+        <div class="container m-100px-tb">
+          <h1 class="my-4 font-weight-bold">Portfolio</h1>
+          <div id="pig"></div>
+      </div> 
+      </main>
+        
+        <div class="modal fade" id="downloadImageModal" data-mdb-backdrop="static" data-mdb-keyboard="false" tabindex="-1" aria-labelledby="downloadImageModal" aria-hidden="true" >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Image title</h5>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close" ></button>
+              </div>
+              <div class="modal-body">
+                <img src="" alt="" class="image-responsive" id="modal-image">
+              </div>
+              <div class="modal-footer">
+                <button type="button" id="downloadImageBtn" class="btn btn-info btn-lg btn-block">Download</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <%- include('partials/footer'); %>
+        <script src="./js/pig.min.js"></script>
+        <script type="text/javascript" src="./js/portfolio.js"></script>
+        
+    </body>
+</html>
